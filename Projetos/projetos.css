@@ -469,6 +469,7 @@ footer{
 @media(max-width:900px){
     .container{flex-direction: column;}
     .project-card__header{flex-direction: column;}
+    .project-card__heading{flex-basis: auto;}
 }
 @media(max-width:768px){
     nav ul{justify-content: center;}
