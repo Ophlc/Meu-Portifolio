@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+    --bg-black: #08050f;
+    --purple-deep: #2b0f5c;
+    --purple: #5517a5;
+    --purple-bright: #9b4dff;
+    --lavender: #c9a9ff;
+    --beige: #f0e9d2;
+    --text-soft: #e7e2f2;
+    --card-bg: rgba(255,255,255,0.05);
+    --card-border: rgba(201,169,255,0.25);
+    --shadow-glow: 0 0 40px rgba(155,77,255,0.25);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    background: radial-gradient(circle at 15% 0%, rgba(155,77,255,0.18), transparent 45%),
+        linear-gradient(160deg, var(--purple-deep) 0%, var(--bg-black) 65%) !important;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-soft);
+    background: radial-gradient(circle at 15% 0%, rgba(155,77,255,0.18), transparent 45%),
+        linear-gradient(160deg, var(--purple-deep) 0%, var(--bg-black) 65%) !important;
+}
+
+h1, h2, h3, h4{
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ---------- Header / Nav ---------- */
+
+header{
+    background-color: var(--purple-deep) !important;
+    color: var(--beige) !important;
+}
+
+nav{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(90deg, var(--purple-deep), var(--purple)) !important;
+    border-bottom: 1px solid rgba(201,169,255,0.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 16px;
+}
+
+nav ul li{
+    display: flex;
+    align-items: center;
+}
+
+nav a{
+    color: var(--beige);
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 6px 14px;
+    border-radius: 8px;
+    position: relative;
+    transition: 0.25s ease;
+}
+
+nav a:hover{
+    color: #ffffff;
+    background: rgba(255,255,255,0.08);
+}
+
+nav a::after{
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 4px;
+    height: 2px;
+    background: var(--lavender);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+nav a:hover::after{
+    transform: scaleX(1);
+}
+
+nav a.active{
+    color: #ffffff;
+    background: rgba(255,255,255,0.1);
+}
+
+nav a.active::after{
+    transform: scaleX(1);
+}
+
+main section{
+    scroll-margin-top: 76px;
+}
+
+/* ---------- Contato ---------- */
+
+main{
+    flex: 1;
+}
+
+.contato-container{
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.eyebrow{
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--lavender);
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    background: rgba(201,169,255,0.06);
+}
+
+.text-gradient{
+    background: linear-gradient(120deg, var(--beige), var(--lavender));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.contato-title{
+    margin-top: 1.5rem;
+    font-weight: 700;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+}
+
+.contato-lead{
+    margin-top: 1.25rem;
+    max-width: 42rem;
+    font-size: 1.125rem;
+    color: var(--text-soft);
+    opacity: 0.85;
+}
+
+.canais{
+    margin-top: 3rem;
+    display: grid;
+    gap: 1rem;
+    list-style: none;
+    grid-template-columns: 1fr;
+    padding: 0;
+}
+
+@media (min-width: 640px){
+    .canais{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.canal{
+    display: block;
+    padding: 1.5rem;
+    height: 100%;
+    background: var(--card-bg);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--card-border);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-glow);
+    text-decoration: none;
+    color: var(--text-soft);
+    transition: transform 0.3s ease;
+}
+
+.canal:hover{
+    transform: translateY(-4px);
+}
+
+.canal-icon{
+    display: grid;
+    place-items: center;
+    height: 2.75rem;
+    width: 2.75rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, var(--purple-bright), var(--lavender));
+    box-shadow: var(--shadow-glow);
+    overflow: hidden;
+}
+
+/* Espaço reservado para o ícone/logo do app (Gmail, GitHub, LinkedIn, Instagram).
+   Adicione a imagem no atributo src do <img class="canal-img"> correspondente no HTML. */
+.canal-img{
+    width: 1.4rem;
+    height: 1.4rem;
+    object-fit: contain;
+    display: block;
+}
+
+.canal-label{
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-soft);
+    opacity: 0.6;
+}
+
+.canal-value{
+    margin-top: 0.25rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.125rem;
+    word-break: break-word;
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+    margin-top: auto;
+    padding: 0.5rem 1rem; 
+    text-align: center;
+    border-top: 1px solid rgba(201,169,255,0.2);
+    background: var(--purple-deep);
+    color: var(--beige);
+    font-size: 0.875rem;
+}
