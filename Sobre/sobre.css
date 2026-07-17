@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+    --bg-black: #08050f;
+    --purple-deep: #2b0f5c;
+    --purple: #5517a5;
+    --purple-bright: #9b4dff;
+    --lavender: #c9a9ff;
+    --beige: #f0e9d2;
+    --text-soft: #e7e2f2;
+    --card-bg: rgba(255,255,255,0.05);
+    --card-border: rgba(201,169,255,0.25);
+    --shadow-glow: 0 0 40px rgba(155,77,255,0.25);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    background: radial-gradient(circle at 15% 0%, rgba(155,77,255,0.18), transparent 45%),
+        linear-gradient(160deg, var(--purple-deep) 0%, var(--bg-black) 65%) !important;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-soft);
+    background: radial-gradient(circle at 15% 0%, rgba(155,77,255,0.18), transparent 45%),
+        linear-gradient(160deg, var(--purple-deep) 0%, var(--bg-black) 65%) !important;
+}
+
+h1, h2, h3, h4{
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ---------- Header / Nav ---------- */
+
+header{
+    background-color: var(--purple-deep) !important;
+    color: var(--beige) !important;
+}
+
+nav{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(90deg, var(--purple-deep), var(--purple)) !important;
+    border-bottom: 1px solid rgba(201,169,255,0.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 16px;
+}
+
+nav ul li{
+    display: flex;
+    align-items: center;
+}
+
+nav a{
+    color: var(--beige);
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 6px 14px;
+    border-radius: 8px;
+    position: relative;
+    transition: 0.25s ease;
+}
+
+nav a:hover{
+    color: #ffffff;
+    background: rgba(255,255,255,0.08);
+}
+
+nav a::after{
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 4px;
+    height: 2px;
+    background: var(--lavender);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+nav a:hover::after{
+    transform: scaleX(1);
+}
+
+nav a.active{
+    color: #ffffff;
+    background: rgba(255,255,255,0.1);
+}
+
+nav a.active::after{
+    transform: scaleX(1);
+}
+
+main section{
+    scroll-margin-top: 76px;
+}
+
+/* ---------- Layout / container ---------- */
+
+.container{
+    width: 100%;
+    padding: clamp(20px, 3vw, 48px);
+}
+
+main{
+    flex: 1 1 auto;
+}
+
+/* ---------- Eyebrow ---------- */
+
+.eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--lavender);
+    padding: 6px 14px;
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    background: rgba(201,169,255,0.06);
+}
+
+/* ---------- Texto em degrade ---------- */
+
+.text-gradient{
+    background: linear-gradient(120deg, var(--beige), var(--lavender));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ---------- Hero da pagina Sobre ---------- */
+
+.sobre-hero{
+    padding-top: 3rem;
+}
+.sobre-hero .sobre-layout{
+    align-items: start;
+}
+.sobre-hero h1{
+    margin-top: 1.5rem;
+    font-weight: 700;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+}
+
+/* ---------- Layout: conteudo + aside fixo ---------- */
+
+.sobre-layout{
+    display:grid;
+    grid-template-columns:1fr 340px;
+    gap:60px;
+    align-items:start;
+}
+@media (max-width:900px){
+    .sobre-layout{
+        display:flex;
+        flex-direction:column;
+        gap:40px;
+    }
+    .sobre-aside{
+        position:static;
+        width:100%;
+        min-height:auto;
+        padding:22px;
+        border-radius:18px;
+    }
+    .sobre-main{
+        width:100%;
+    }
+
+}
+
+.sobre-main{
+    min-width: 0;
+}
+.about-text{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-soft);
+    max-width: 70ch;
+}
+
+.sobre-aside{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 92px;
+
+
+    border: 1px solid rgba(201,169,255,0.2);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    min-height: auto;
+
+}
+
+/* ---------- Espaco para a foto de perfil ---------- */
+
+.profile-photo{
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    border-radius: 16px;
+    background: var(--card-bg);
+    border: 1px dashed var(--card-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    color: var(--lavender);
+    overflow: hidden;
+}
+.profile-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.profile-photo-icon{
+    font-size: 1.8rem;
+    opacity: 0.8;
+}
+.profile-photo-text{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    padding: 0 12px;
+    opacity: 0.85;
+}
+
+/* ---------- Card lateral ---------- */
+
+.card{
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+}
+
+.about-side{
+    padding: 1.5rem;
+}
+.about-side .card-title{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+.about-side dl{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+}
+.about-side dl div{
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--card-border);
+}
+.about-side dl div:last-child{
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.about-side dt{
+    color: var(--lavender);
+    opacity: 0.85;
+}
+.about-side dd{
+    font-family: 'Space Grotesk', sans-serif;
+    text-align: right;
+    color: var(--text-soft);
+}
+
+/* ---------- Secoes (Trajetoria / Interesses) ---------- */
+
+.sobre-section{
+    margin-top: 4.5rem;
+}
+.sobre-section h2{
+    margin-top: 0.75rem;
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* ---------- Timeline (Formacao) ---------- */
+
+.timeline{
+    margin-top: 2rem;
+    position: relative;
+    border-left: 1px solid var(--card-border);
+    padding-left: 2rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.timeline li{
+    position: relative;
+}
+.timeline-dot{
+    position: absolute;
+    left: -43px;
+    display: grid;
+    place-items: center;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--purple-bright), var(--lavender));
+    box-shadow: var(--shadow-glow);
+    color: var(--bg-black);
+    font-size: 0.75rem;
+}
+.timeline .year{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--lavender);
+}
+.timeline h3{
+    margin-top: 0.35rem;
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+.timeline .where{
+    margin-top: 2px;
+    font-size: 0.9rem;
+    color: var(--lavender);
+    opacity: 0.85;
+}
+.timeline .body{
+    margin-top: 0.5rem;
+    color: var(--text-soft);
+    line-height: 1.7;
+    max-width: 65ch;
+}
+
+/* ---------- Interesses ---------- */
+
+.interests{
+    margin-top: 40px;
+    display: grid;
+    gap: 22px;
+    grid-template-columns: 1fr;
+    list-style: none;
+}
+@media(min-width: 700px){
+    .interests{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.interests li{
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    border-radius:18px;
+}
+.interest-icon{
+    display: grid;
+    place-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(201,169,255,0.12);
+    color: var(--lavender);
+    font-size: 1.1rem;
+}
+.interests span:last-child{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-soft);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:768px){
+
+    .sobre-hero h1{
+        font-size:2rem;
+    }
+    .about-text{
+        font-size:1rem;
+        line-height:1.7;
+    }
+    .timeline h3{
+        font-size:1.05rem;
+    }
+    .timeline .body{
+        font-size:.95rem;
+    }
+    .interests li{
+        font-size:.95rem;
+    }
+    .interest-icon{
+        width:42px;
+        height:42px;
+        font-size:1rem;
+    }
+
+}
+@media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; }
+}
+@media (min-width: 901px){
+    .sobre-aside{
+        min-height: calc(100vh - 92px);
+    }
+}
