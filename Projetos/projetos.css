@@ -1,0 +1,479 @@
+/* ============================================================
+   Meus Projetos - Etec
+   Mesma identidade visual do pag4.html / stylepedroh.css
+   Paleta: roxo profundo + preto (fundo), lavanda (destaque), bege (texto)
+   Tipografia: Space Grotesk (titulos) + Inter (corpo)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+    --bg-black: #08050f;
+    --purple-deep: #2b0f5c;
+    --purple: #5517a5;
+    --purple-bright: #9b4dff;
+    --lavender: #c9a9ff;
+    --beige: #f0e9d2;
+    --text-soft: #e7e2f2;
+    --card-bg: rgba(255,255,255,0.05);
+    --card-border: rgba(201,169,255,0.25);
+    --shadow-glow: 0 0 40px rgba(155,77,255,0.25);
+}
+*{
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+    background: radial-gradient(circle at 15% 0%, rgba(155,77,255,0.18), transparent 45%),
+        linear-gradient(160deg, var(--purple-deep) 0%, var(--bg-black) 65%) !important;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-soft);
+    background: radial-gradient(circle at 15% 0%, rgba(155,77,255,0.18), transparent 45%),
+        linear-gradient(160deg, var(--purple-deep) 0%, var(--bg-black) 65%) !important;
+}
+h1, h2, h3, h4{
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ---------- Header / Nav (ja estava igual, mantido) ---------- */
+header{
+    background-color: var(--purple-deep) !important;
+    color: var(--beige) !important;
+}
+nav{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(90deg, var(--purple-deep), var(--purple)) !important;
+    border-bottom: 1px solid rgba(201,169,255,0.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 16px;
+}
+nav ul li{
+    display: flex;
+    align-items: center;
+}
+nav a{
+    color: var(--beige);
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 6px 14px;
+    border-radius: 8px;
+    position: relative;
+    transition: 0.25s ease;
+}
+nav a:hover{
+    color: #ffffff;
+    background: rgba(255,255,255,0.08);
+}
+nav a::after{
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 4px;
+    height: 2px;
+    background: var(--lavender);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+nav a:hover::after{
+    transform: scaleX(1);
+}
+nav a.active{
+    color: #ffffff;
+    background: rgba(255,255,255,0.1);
+}
+nav a.active::after{
+    transform: scaleX(1);
+}
+main section{
+    scroll-margin-top: 76px;
+}
+
+/* ---------- Mini navegação interna (Etec / Leopoldo / Pessoais) ---------- */
+.mini-nav{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+    position: sticky;
+    top: calc(var(--nav-height, 60px) + 10px);
+    z-index: 90;
+}
+.mini-nav a{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    color: var(--lavender);
+    text-decoration: none;
+    padding: 8px 18px;
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    background: rgba(8,5,15,0.55);
+    backdrop-filter: blur(6px);
+    transition: 0.25s ease;
+}
+.mini-nav a:hover{
+    color: #ffffff;
+    border-color: var(--lavender);
+    background: rgba(201,169,255,0.14);
+}
+.mini-nav a.active{
+    color: #ffffff;
+    border-color: var(--lavender);
+    background: rgba(201,169,255,0.22);
+}
+
+/* ---------- Layout ---------- */
+.container{
+    display: flex;
+}
+main{
+    background: transparent !important;
+    flex: 1 1 auto;
+    width: 100%;
+    padding: clamp(20px, 3vw, 48px);
+}
+
+/* ---------- Intro / grupos (Etec / Leopoldo / Pessoais) ---------- */
+main > p{
+    line-height: 1.7;
+    color: var(--text-soft);
+    max-width: 70ch;
+}
+main hr{
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, var(--purple-bright), transparent);
+    margin: 40px 0;
+}
+
+.etec,
+.leopoldo,
+.pessoais{
+    margin: 0 0 36px;
+    padding: 22px clamp(18px, 3vw, 30px);
+    background: linear-gradient(120deg, rgba(155,77,255,0.14), rgba(255,255,255,0.02));
+    border: 1px solid var(--card-border);
+    border-left: 4px solid var(--purple-bright);
+    border-radius: 14px;
+}
+.etec h1,
+.leopoldo h1,
+.pessoais h1{
+    font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+    color: #ffffff;
+    margin: 0 0 8px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+.etec p,
+.leopoldo p{
+    line-height: 1.7;
+    color: var(--text-soft);
+    max-width: 70ch;
+    margin: 0;
+}
+.pessoais p{
+    line-height: 1.7;
+    color: var(--text-soft);
+    max-width: 70ch;
+    margin: 0;
+}
+
+/* grupo de projetos (espaçamento entre blocos de secoes) */
+.grupo-projetos{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 8px;
+}
+.grupo-projetos:last-of-type{
+    margin-bottom: 0;
+}
+
+/* ---------- Eyebrow (categoria do projeto) ---------- */
+.eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--lavender);
+    margin: 0 0 8px;
+}
+.eyebrow::before{
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: var(--lavender);
+    display: inline-block;
+}
+
+/* ---------- Card de projeto ---------- */
+.project-card{
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: clamp(20px, 3vw, 32px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.project-card:hover{
+    transform: translateY(-4px);
+    border-color: rgba(201,169,255,0.45);
+    box-shadow: var(--shadow-glow);
+}
+.project-card__header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px 24px;
+    margin-bottom: 6px;
+}
+.project-card__heading{
+    flex: 1 1 320px;
+    min-width: 0;
+}
+
+/* ---------- Headings ---------- */
+h2{
+    border-left: 4px solid var(--purple-bright);
+    color: #ffffff;
+    padding: 4px 0 4px 12px;
+    margin: 0;
+    font-size: 1.45rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+}
+
+/* ---------- Texto e paragrafo do card ---------- */
+.project-card p{
+    line-height: 1.75;
+    color: var(--text-soft);
+    max-width: 70ch;
+    margin: 14px 0 0;
+}
+
+/* ---------- Link do projeto (estilo de botao) ---------- */
+main a{
+    color: var(--lavender);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+main a:hover{
+    color: #ffffff;
+}
+.project-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 10px 20px;
+    border: 1px solid var(--lavender);
+    border-radius: 999px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+    border-bottom: 1px solid var(--lavender);
+}
+.project-link::after{
+    content: "\2192";
+    transition: transform 0.25s ease;
+}
+.project-link:hover{
+    background: rgba(201,169,255,0.12);
+    border-color: #ffffff;
+}
+.project-link:hover::after{
+    transform: translateX(4px);
+}
+
+/* ---------- Image grids ---------- */
+.Diversidade{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+.Diversidade img{
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    border: 1px solid var(--card-border);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.Diversidade img:hover{
+    transform: scale(1.04) translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+.Doemais,
+.Interdiciplinar,
+.Gincana,
+.Quizcbjr,
+.Cbjrsite,
+.formulario,
+.fator5{
+    display: flex;
+    margin-top: 20px;
+}
+.Doemais img,
+.Interdiciplinar img,
+.Gincana img,
+.Quizcbjr img,
+.Cbjrsite img,
+.formulario img,
+.fator5 img{
+    width: min(1000px, 100%);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    border: 1px solid var(--card-border);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.Doemais img:hover,
+.Interdiciplinar img:hover,
+.Gincana img:hover,
+.Quizcbjr img:hover,
+.Cbjrsite img:hover,
+.formulario img:hover,
+.fator5 img:hover{
+    transform: scale(1.03);
+    box-shadow: var(--shadow-glow);
+}
+
+.informativo{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+.informativo img{
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    border: 1px solid var(--card-border);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.informativo img:hover{
+    transform: scale(1.04) translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+
+/* ---------- Cursor de zoom nas imagens ---------- */
+.Diversidade img,
+.Doemais img,
+.Interdiciplinar img,
+.Gincana img,
+.informativo img,
+.Quizcbjr img,
+.Cbjrsite img,
+.formulario img,
+.fator5 img{
+    cursor: zoom-in;
+}
+
+/* ---------- Zoom de imagem via projetos.js (lightbox) ---------- */
+.lightbox-overlay{
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8,5,15,0.9);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+    padding: 24px;
+}
+.lightbox-overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+.lightbox-overlay img{
+    max-width: 92vw;
+    max-height: 92vh;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-glow);
+    cursor: zoom-out;
+}
+
+/* ---------- Music button ---------- */
+
+.musica-btn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--purple-bright), var(--purple));
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    z-index: 9999;
+    box-shadow: 0 6px 20px rgba(155,77,255,0.4);
+    transition: .3s;
+}
+.musica-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(155,77,255,0.55);
+}
+
+/* ---------- Footer ---------- */
+footer{
+    background: linear-gradient(90deg, var(--purple-deep), var(--purple)) !important;
+    color: var(--beige) !important;
+    text-align: center;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    padding: 16px;
+    border-top: 1px solid rgba(201,169,255,0.2);
+}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+    .container{flex-direction: column;}
+    .project-card__header{flex-direction: column;}
+}
+@media(max-width:768px){
+    nav ul{justify-content: center;}
+    .project-card{padding: 20px;}
+}
+@media (prefers-reduced-motion: reduce){
+    *{transition: none !important;}
+}
